@@ -32,19 +32,10 @@ def get_main_menu_keyboard():
 # Обработчик кнопки "Меню"
 @bot.message_handler(func=lambda message: message.text == "Меню")
 def handle_menu(message):
-    menu_url = "menu.pdf"
-    try:
-        # Загружаем PDF файл по URL
-        response = requests.get(menu_url)
-        if response.status_code == 200:
-            with open('menu.pdf', 'wb') as file:
-                file.write(response.content)
-            with open('menu.pdf', 'rb') as file:
-                bot.send_document(message.chat.id, file)
-        else:
-            bot.send_message(message.chat.id, "Не удалось загрузить меню.")
-    except Exception as e:
-        bot.send_message(message.chat.id, "Произошла ошибка при загрузке меню.")
+    # Вам нужно заменить 'menu.pdf' на путь к вашему PDF файлу меню
+    with open('menu.pdf', 'rb') as file:
+        bot.send_document(message.chat.id, file)
+
 
 
 # Обработчик кнопки "Сайт"
