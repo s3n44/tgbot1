@@ -32,7 +32,7 @@ def get_main_menu_keyboard():
 # Обработчик кнопки "Меню"
 @bot.message_handler(func=lambda message: message.text == "Меню")
 def handle_menu(message):
-    menu_url = "https://primerest.uz/menu.pdf"
+    menu_url = "menu.pdf"
     try:
         # Загружаем PDF файл по URL
         response = requests.get(menu_url)
